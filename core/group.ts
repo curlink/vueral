@@ -1,16 +1,12 @@
 import Query from "./query";
+import AbstractOptions from "./AbstractOptions";
 
-class Group {
-    private inner_sql = "GROUP BY ";
-    private parent_instance: Query;
+class Group extends AbstractOptions{
 
     constructor(parent_instance: Query, input: any) {
-        this.parent_instance = parent_instance
+        super(parent_instance)
+        this.inner_sql = "GROUP BY "
         this.factory(input);
-    }
-
-    getInnerSql() {
-        return this.inner_sql;
     }
 
     private factory(input: any) {
